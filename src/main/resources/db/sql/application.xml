@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="addApplication">
+        <![CDATA[
+            insert into individual_application (
+                id,
+                document_type_code,
+                first_name,
+                last_name,
+                ssn,
+                street,
+                street2,
+                city,
+                state,
+                postal_code,
+                country,
+                date_of_birth,
+                email,
+                phone,
+                status_code,
+                message,
+                archived
+            ) values (
+                :id,
+                :document_type_code,
+                :first_name,
+                :last_name,
+                :ssn,
+                :street,
+                :street2,
+                :city,
+                :state,
+                :postal_code,
+                :country,
+                :date_of_birth,
+                :email,
+                :phone,
+                :status_code,
+                :message,
+                :archived
+            )
+        ]]>
+    </entry>
+
+    <entry key="getApplicationById">
+        <![CDATA[
+            select
+                id,
+                document_type_code,
+                first_name,
+                last_name,
+                ssn,
+                street,
+                street2,
+                city,
+                state,
+                postal_code,
+                country,
+                date_of_birth,
+                email,
+                phone,
+                status_code,
+                message,
+                archived
+            from
+                individual_application
+            where
+                id = :id
+        ]]>
+    </entry>
+</properties>

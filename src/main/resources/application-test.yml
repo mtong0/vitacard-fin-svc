@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:fin-db
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yml
+    enabled: true
+  h2:
+    console:
+      enabled: true
+
+services:
+  unit:
+    baseUrl: http://localhost:1080/
+    apis: classpath:unit-apis.properties
+  customer-svc:
+    baseUrl: http://localhost:8081/
+
