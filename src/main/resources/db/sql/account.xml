@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="addAccount">
+        <![CDATA[
+            insert into account (
+                id,
+                created_at,
+                status_code,
+                currency,
+                balance,
+                hold,
+                available,
+                customer_id
+            ) values (
+                :id,
+                :created_at,
+                :status_code,
+                :currency,
+                :balance,
+                :hold,
+                :available,
+                :customer_id
+            )
+        ]]>
+    </entry>
+
+    <entry key="addAccount">
+        <![CDATA[
+            update account
+            set
+                status_code = :status_code,
+                currency = :currency,
+                balance = :balance,
+                hold = :hold,
+                available = :available
+            where
+                id = :id
+        ]]>
+    </entry>
+
+    <entry key="getAccountById">
+        <![CDATA[
+            select
+                id,
+                created_at,
+                status_code,
+                currency,
+                balance,
+                hold,
+                available,
+                customer_id
+            from
+                account
+            where
+                id = :id
+        ]]>
+    </entry>
+</properties>

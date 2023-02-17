@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: classpath:db/changelog/create-application-tables.xml
+  - include:
+      file: classpath:db/changelog/create-account-tables.xml

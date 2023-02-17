@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="02" author="muyut">
+        <preConditions onFail="MARK_RAN">
+        </preConditions>
+        <createTable tableName="account">
+            <column name="id" type="varchar(20)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="status_code" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency" type="char(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="balance" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hold" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="available" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+            </column>
+        </createTable>
+
+        <createTable tableName="deposit_account">
+            <column name="id" type="varchar(20)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="deposit_product_code" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="routing_number" type="char(9)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_number" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

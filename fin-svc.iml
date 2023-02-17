@@ -21,8 +21,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/resources/certificates" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -141,6 +142,12 @@
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.33" level="project" />
     <orderEntry type="library" name="Maven: com.opencsv:opencsv:5.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.4" level="project" />
+    <orderEntry type="library" name="Maven: io.vavr:vavr:0.9.2" level="project" />
+    <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.9.2" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-aarch_64:4.1.76.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.86.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.86.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.0.1" level="project" />
@@ -186,10 +193,7 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-reactor-netty:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-http:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec-http2:4.1.86.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.86.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.86.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport-classes-epoll:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-core:1.1.1" level="project" />
@@ -197,11 +201,13 @@
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20220924" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-configuration-processor:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.mockito:mockito-core:4.8.1" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.12.20" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy-agent:1.12.20" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.objenesis:objenesis:3.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
   </component>
 </module>

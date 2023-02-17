@@ -21,7 +21,8 @@
                 phone,
                 status_code,
                 message,
-                archived
+                archived,
+                customer_id
             ) values (
                 :id,
                 :document_type_code,
@@ -39,7 +40,8 @@
                 :phone,
                 :status_code,
                 :message,
-                :archived
+                :archived,
+                :customer_id
             )
         ]]>
     </entry>
@@ -63,7 +65,8 @@
                 phone,
                 status_code,
                 message,
-                archived
+                archived,
+                customer_id
             from
                 individual_application
             where
