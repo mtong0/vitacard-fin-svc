@@ -1,6 +1,5 @@
 package com.vitacard.finsvc.commons.events;
 
-import com.vitacard.finsvc.commons.DomainEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;

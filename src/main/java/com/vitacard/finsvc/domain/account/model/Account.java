@@ -1,12 +1,13 @@
 package com.vitacard.finsvc.domain.account.model;
 
+import com.vitacard.finsvc.domain.account.model.attributes.AccountStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+
+import java.sql.Timestamp;
 
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 public class Account {
@@ -17,8 +18,6 @@ public class Account {
     private long hold;
     private long available;
     private String customerId;
-
-    Account(String accountId) {
-        this.id = accountId;
-    }
+    private Timestamp createdAt;
+    private String type;
 }

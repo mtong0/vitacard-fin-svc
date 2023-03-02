@@ -1,7 +1,7 @@
 package com.vitacard.finsvc.domain.application.model;
 
-import com.vitacard.finsvc.commons.DomainEvent;
-import com.vitacard.finsvc.commons.SpringApplicationContext;
+import com.vitacard.finsvc.commons.events.DomainEvent;
+import com.vitacard.finsvc.configuration.SpringApplicationContext;
 import com.vitacard.finsvc.domain.application.facet.CreateIndividualApplicationCommand;
 import com.vitacard.finsvc.domain.application.infrastructure.IndividualApplicationEntity;
 import com.vitacard.finsvc.domain.application.infrastructure.IndividualApplicationEntityFactory;
@@ -17,9 +17,6 @@ import java.util.UUID;
 public interface ApplicationEvent extends DomainEvent {
     @Value
     class CreateIndividualApplicationEvent implements ApplicationEvent {
-        static IndividualApplicationEntityFactory individualApplicationEntityFactory
-                = SpringApplicationContext.getIndividualApplicationEntityFactory();
-
         @NonNull IndividualApplicationEntity individualApplicationEntity;
         public static CreateIndividualApplicationEvent createIndividualApplication(
                 CreateIndividualApplicationCommand createIndividualApplicationCommand,
@@ -28,6 +25,8 @@ public interface ApplicationEvent extends DomainEvent {
             String id = unitResponse.getId();
             ApplicationStatus status = ApplicationStatus.getByStatus(unitResponse.getStatus());
             String customerId = unitResponse.getCustomerId();
+            IndividualApplicationEntityFactory individualApplicationEntityFactory
+                    = SpringApplicationContext.getBean(IndividualApplicationEntityFactory.class);
             IndividualApplicationEntity individualApplication = individualApplicationEntityFactory.create(
                     id,
                     status.getCode(),

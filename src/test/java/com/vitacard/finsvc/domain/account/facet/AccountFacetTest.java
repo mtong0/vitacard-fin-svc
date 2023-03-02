@@ -1,26 +1,39 @@
 package com.vitacard.finsvc.domain.account.facet;
 
-import com.vitacard.finsvc.commons.events.JustForwardDomainEventPublisher;
-import com.vitacard.finsvc.commons.UnitCommand;
+import com.vitacard.finsvc.commons.unit.UnitTransactionCallbackEvent;
+import com.vitacard.finsvc.domain.account.infrastructure.AccountRepository;
+import com.vitacard.finsvc.domain.account.model.AccountEvent.AccountTransactionEvent;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import unit.UnitResponse;
 
-@SpringBootTest
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+
 @ExtendWith(MockitoExtension.class)
 class AccountFacetTest {
-    @Autowired
-    private JustForwardDomainEventPublisher justForwardDomainEventPublisher;
-    @Autowired
-    private AccountFacet accountFacet = new AccountFacet();
-    @MockBean
-    private ProcessTransaction processTransaction;
+    @InjectMocks
+    private AccountFacet accountFacet;
+    @Mock
+    private AccountRepository accountRepository;
+    @Mock
+    private CreateDepositAccount createDepositAccount;
+    @Mock
+    private Reward reward;
+
     @Test
     void handle() {
+    }
+
+    @Test
+    void getTest() {
+    }
+    @Test
+    void handleTransactionCallbackEvent() {
         String transactionCreated = """
                 {
                   "data": [
@@ -68,7 +81,14 @@ class AccountFacetTest {
                   ]
                 }
                 """;
-        Mockito.doNothing().when(processTransaction).processTransaction(Mockito.any());
-        accountFacet.handle(UnitCommand.getEvent(new UnitCommand(transactionCreated)));
+        UnitTransactionCallbackEvent unitTransactionCallbackEvent = UnitTransactionCallbackEvent.create(
+                new UnitResponse(transactionCreated).getOnly()
+        );
+
+        AccountTransactionEvent accountTransactionEvent
+                = AccountTransactionEvent.createTransactionEvent("1212053", 3000, 689305);
+        Mockito.when(accountRepository.publish(eq(accountTransactionEvent))).thenReturn(null);
+        accountFacet.handle(unitTransactionCallbackEvent);
+        Mockito.verify(accountRepository, times(1)).publish(eq(accountTransactionEvent));
     }
 }

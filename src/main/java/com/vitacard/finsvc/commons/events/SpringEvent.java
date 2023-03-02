@@ -1,6 +1,5 @@
 package com.vitacard.finsvc.commons.events;
 
-import com.vitacard.finsvc.commons.DomainEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;

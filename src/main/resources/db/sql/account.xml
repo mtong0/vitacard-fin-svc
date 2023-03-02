@@ -26,7 +26,7 @@
         ]]>
     </entry>
 
-    <entry key="addAccount">
+    <entry key="updateAccount">
         <![CDATA[
             update account
             set
@@ -50,9 +50,63 @@
                 balance,
                 hold,
                 available,
-                customer_id
+                customer_id,
+                type
             from
                 account
+            where
+                id = :id
+        ]]>
+    </entry>
+
+    <entry key="addDepositAccount">
+        <![CDATA[
+            insert into deposit_account (
+                id,
+                deposit_product_code,
+                routing_number,
+                account_number
+            ) values (
+                :id,
+                :deposit_product_code,
+                :routing_number,
+                :account_number
+            )
+        ]]>
+    </entry>
+
+    <entry key="getDepositAccountById">
+        <![CDATA[
+            select
+                a.id,
+                a.created_at,
+                a.status_code,
+                a.currency,
+                a.balance,
+                a.hold,
+                a.available,
+                a.customer_id,
+                a.type,
+                da.deposit_product_code,
+                da.routing_number,
+                da.account_number
+            from
+                deposit_account da join account a on da.id = a.id
+            where
+                a.id = :id
+        ]]>
+    </entry>
+
+    <entry key="updateAccountById">
+        <![CDATA[
+            update account
+            set
+                id = :id,
+                status_code = :status_code,
+                currency = :currency,
+                balance = :balance,
+                hold = :hold,
+                available = :available
             where
                 id = :id
         ]]>

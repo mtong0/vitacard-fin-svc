@@ -6,6 +6,8 @@ import com.vitacard.finsvc.domain.application.model.ApplicationEvent.CreateIndiv
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import unit.UnitResponse;
+import unit.UnitResponseData;
 
 @SpringBootTest
 class ApplicationEventTest {
@@ -20,13 +22,13 @@ class ApplicationEventTest {
                         .build();
 
         UnitCreateApplicationResponse unitCreateApplicationResponse = new UnitCreateApplicationResponse(
+                new UnitResponse(
                 """
                         {
                             "data": {
                                 "type": "individualApplication",
                                 "id": "987629",
                                 "attributes": {
-                                    "createdAt": "2023-02-11T03:36:08.285Z",
                                     "fullName": {
                                         "first": "Test Sincere",
                                         "last": "Price"
@@ -75,7 +77,7 @@ class ApplicationEventTest {
                             "included": []
                         }
                         """
-        );
+        ).getOnly());
         CreateIndividualApplicationEvent createIndividualApplicationEvent = CreateIndividualApplicationEvent.createIndividualApplication(
             createIndividualApplicationCommand,
             unitCreateApplicationResponse

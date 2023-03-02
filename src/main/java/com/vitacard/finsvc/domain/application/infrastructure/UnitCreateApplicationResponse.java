@@ -1,24 +1,22 @@
 package com.vitacard.finsvc.domain.application.infrastructure;
 
+
 import unit.UnitResponse;
+import unit.UnitResponseData;
 
-public class UnitCreateApplicationResponse extends UnitResponse {
-    public UnitCreateApplicationResponse(String unitResponseString) {
-        super(unitResponseString);
-    }
-
+public record UnitCreateApplicationResponse(UnitResponseData unitResponseData) {
     public String getId() {
-        return getData().get("id").getAsString();
+        return unitResponseData.id();
     }
 
     public String getStatus() {
-        return getAttributes().get("status").getAsString();
+        return unitResponseData.attributes().get("status").getAsString();
     }
 
     public String getCustomerId() {
-        return getRelationships()
+        return unitResponseData().relationships()
                 .get("customer")
                 .get(0)
-                .getId();
+                .id();
     }
 }

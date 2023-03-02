@@ -20,4 +20,5 @@ services:
     apis: classpath:unit-apis.properties
   customer-svc:
     baseUrl: http://localhost:8081/
-
+  reward-svc:
+    baseUrl: http://localhost:8083/

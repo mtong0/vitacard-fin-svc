@@ -2,15 +2,11 @@ package com.vitacard.finsvc.domain.application.infrastructure;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.vitacard.finsvc.commons.UnitDateFormat;
+import com.vitacard.finsvc.commons.unit.UnitDateFormat;
 import com.vitacard.finsvc.domain.application.facet.CreateIndividualApplicationCommand;
-import generalattributes.Address;
 import generalattributes.FullName;
 import generalattributes.Phone;
-import lombok.Data;
 import lombok.Value;
-import net.minidev.json.annotate.JsonIgnore;
-import org.json.JSONObject;
 import unit.UnitAddress;
 
 @Value
