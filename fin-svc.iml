@@ -35,7 +35,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.14.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:10.1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:10.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:10.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:6.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.0.3" level="project" />
@@ -100,7 +99,6 @@
     <orderEntry type="library" name="Maven: io.swagger.parser.v3:swagger-parser-v3:2.1.2" level="project" />
     <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-core:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-annotations:2.2.2" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.xml.bind:jaxb-impl:4.0.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.xml.bind:jaxb-core:4.0.1" level="project" />
@@ -148,6 +146,12 @@
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.86.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.86.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-validation:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:10.1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:8.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.5.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.0.1" level="project" />
@@ -207,7 +211,7 @@
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.12.20" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy-agent:1.12.20" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.objenesis:objenesis:3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
   </component>
 </module>

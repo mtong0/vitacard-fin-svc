@@ -1,6 +1,6 @@
 package com.vitacard.finsvc.domain.application.facet;
 
-import com.vitacard.finsvc.client.CustomerService;
+import com.vitacard.finsvc.client.CustomerSvcClient;
 import com.vitacard.finsvc.domain.application.model.ApplicationEvent;
 import com.vitacard.finsvc.domain.application.model.ApplicationEvent.CreateCustomerEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import static io.vavr.Predicates.instanceOf;
 @Service
 public class ApplicationFacet {
     @Autowired
-    private CustomerService customerService;
+    private CustomerSvcClient customerSvcClient;
 
     public String handle(ApplicationEvent event) {
         return Match(event).of(
@@ -22,7 +22,7 @@ public class ApplicationFacet {
     }
 
     public String handle(CreateCustomerEvent createCustomerEvent) {
-        customerService.addCustomer(createCustomerEvent.getInternalCreateCustomerRequestDto());
+        customerSvcClient.addCustomer(createCustomerEvent.getInternalCreateCustomerRequestDto());
         return "";
     }
 }

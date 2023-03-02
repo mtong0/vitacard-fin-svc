@@ -1,10 +1,7 @@
 package com.vitacard.finsvc.commons;
 
+import com.vitacard.finsvc.commons.unit.UnitDateFormat;
 import org.junit.jupiter.api.Test;
-
-import java.text.SimpleDateFormat;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UnitDateFormatTest {
     @Test

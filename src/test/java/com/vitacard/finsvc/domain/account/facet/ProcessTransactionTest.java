@@ -8,9 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProcessTransactionTest {
-    @Autowired
-    private ProcessTransaction processTransaction;
-
     @Test
     void processTransaction() {
     }

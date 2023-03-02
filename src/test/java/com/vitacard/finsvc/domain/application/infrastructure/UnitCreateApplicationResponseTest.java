@@ -2,6 +2,8 @@ package com.vitacard.finsvc.domain.application.infrastructure;
 
 import com.google.gson.internal.LinkedTreeMap;
 import org.junit.jupiter.api.Test;
+import unit.UnitResponse;
+import unit.UnitResponseData;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -106,7 +108,7 @@ class UnitCreateApplicationResponseTest {
                 }
                 """;
 
-        UnitCreateApplicationResponse unitCreateApplicationResponse = new UnitCreateApplicationResponse(unitResponseString);
+        UnitCreateApplicationResponse unitCreateApplicationResponse = new UnitCreateApplicationResponse(new UnitResponse(unitResponseString).getOnly());
         assertNotNull(unitCreateApplicationResponse.getId());
         assertNotNull(unitCreateApplicationResponse.getStatus());
         assertNotNull(unitCreateApplicationResponse.getCustomerId());

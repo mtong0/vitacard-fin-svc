@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="addTransaction">
+        <![CDATA[
+            insert into transaction (
+                id,
+                amount,
+                balance,
+                available,
+                summary,
+                created_at,
+                direction,
+                type
+            ) values (
+                :id,
+                :amount,
+                :balance,
+                :available,
+                :summary,
+                :created_at,
+                :direction,
+                :type
+            )
+        ]]>
+    </entry>
+
+    <entry key="getTransactionById">
+        <![CDATA[
+            select
+                id,
+                amount,
+                balance,
+                available,
+                summary,
+                created_at,
+                direction,
+                type
+            from
+                transaction
+            where
+                id = :id
+        ]]>
+    </entry>
+
+    <entry key="getCardTransactionById">
+        <![CDATA[
+            select
+                t.id,
+                t.amount,
+                t.balance,
+                t.available,
+                t.summary,
+                t.created_at,
+                t.direction,
+                t.type,
+                c_t.card_last_4_digits,
+                c_t.merchant_name,
+                c_t.merchant_type,
+                c_t.merchant_category
+            from
+                transaction t join card_transaction c_t on t.id = c_t.id
+            where
+                t.id = :id
+        ]]>
+    </entry>
+    <entry key="addCardTransaction">
+        <![CDATA[
+            insert into card_transaction (
+                id,
+                card_last_4_digits,
+                merchant_name,
+                merchant_type,
+                merchant_category
+            ) values (
+                :id,
+                :card_last_4_digits,
+                :merchant_name,
+                :merchant_type,
+                :merchant_category
+            )
+        ]]>
+    </entry>
+</properties>

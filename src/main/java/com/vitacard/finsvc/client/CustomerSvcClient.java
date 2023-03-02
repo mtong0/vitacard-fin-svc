@@ -1,5 +1,6 @@
 package com.vitacard.finsvc.client;
 
+import customer.InternalCreateCustomerRequestDto;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +24,7 @@ public class CustomerSvcClient {
     private WebClient client;
 
     @PostConstruct
-    protected void setup() throws IOException {
+    private void setup() throws IOException {
         client = WebClient
                 .builder()
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
@@ -31,7 +32,7 @@ public class CustomerSvcClient {
                 .build();
     }
 
-    protected String post(String uri, String requestBody) {
+    private String post(String uri, String requestBody) {
         return client
                 .post()
                 .uri(uri)
@@ -41,8 +42,8 @@ public class CustomerSvcClient {
                 .block();
     }
 
-    protected String addCustomer(String requestBody) {
+    public String addCustomer(InternalCreateCustomerRequestDto requestBody) {
         String uri = environment.getProperty("api.customer-svc.customer.add.uri");
-        return post(uri, requestBody);
+        return post(uri, requestBody.toString());
     }
 }

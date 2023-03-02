@@ -3,3 +3,7 @@ databaseChangeLog:
       file: classpath:db/changelog/create-application-tables.xml
   - include:
       file: classpath:db/changelog/create-account-tables.xml
+  - include:
+      file: classpath:db/changelog/create-transaction-tables.xml
+  - include:
+      file: classpath:db/changelog/insert_data.xml

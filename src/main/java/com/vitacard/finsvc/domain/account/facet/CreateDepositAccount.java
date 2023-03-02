@@ -1,37 +1,32 @@
 package com.vitacard.finsvc.domain.account.facet;
 
-import com.vitacard.finsvc.client.UnitWebService;
-import com.vitacard.finsvc.domain.account.dtos.CreateDepositAccountCommand;
-import com.vitacard.finsvc.domain.account.dtos.UnitCreateDepositAccountRequest;
-import com.vitacard.finsvc.domain.account.dtos.UnitCreateDepositAccountResponse;
-import com.vitacard.finsvc.domain.account.infrastructure.account.AccountRepository;
-import com.vitacard.finsvc.domain.account.infrastructure.deposit.DepositAccountRepository;
-import com.vitacard.finsvc.domain.account.model.AccountEvent.CreateDepositAccountEvent;
+import com.vitacard.finsvc.client.UnitWebClient;
+import com.vitacard.finsvc.commons.unit.UnitCreateDepositAccountRequest;
+import com.vitacard.finsvc.domain.account.dtos.CreateDepositAccountDto;
+import com.vitacard.finsvc.commons.unit.UnitCreateDepositAccountResponse;
+import com.vitacard.finsvc.domain.account.infrastructure.AccountRepository;
+import com.vitacard.finsvc.domain.account.model.AccountFactory;
+import com.vitacard.finsvc.domain.account.model.DepositAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import static com.vitacard.finsvc.domain.account.model.AccountEvent.CreateDepositAccountEvent.createDepositAccount;
 
 @Service
 public class CreateDepositAccount {
     @Autowired
-    private UnitWebService unitWebService;
-    @Autowired
-    private DepositAccountRepository depositAccountRepository;
+    private UnitWebClient unitWebClient;
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
+    private AccountFactory accountFactory;
 
-    public void createAccount(CreateDepositAccountCommand createDepositAccountCommand) {
+    public void now(CreateDepositAccountDto createDepositAccountDto) {
         UnitCreateDepositAccountRequest unitCreateDepositAccountRequest = new UnitCreateDepositAccountRequest(
-                createDepositAccountCommand.getDepositProduct(), createDepositAccountCommand.getRelationType(), createDepositAccountCommand.getRelationId()
+                createDepositAccountDto.depositProduct(),
+                createDepositAccountDto.relationType(),
+                createDepositAccountDto.relationId()
         );
-        UnitCreateDepositAccountResponse unitCreateDepositAccountResponse = new UnitCreateDepositAccountResponse(
-                unitWebService.createDepositAccount(unitCreateDepositAccountRequest)
-        );
-
-        CreateDepositAccountEvent createDepositAccountEvent = createDepositAccount(createDepositAccountCommand, unitCreateDepositAccountResponse);
-        accountRepository.publish(createDepositAccountEvent);
-        depositAccountRepository.publish(createDepositAccountEvent);
+        UnitCreateDepositAccountResponse unitCreateDepositAccountResponse = unitWebClient.createDepositAccount(unitCreateDepositAccountRequest);
+        DepositAccount depositAccount = accountFactory.create(createDepositAccountDto, unitCreateDepositAccountResponse);
+        accountRepository.addAccount(depositAccount);
     }
-
 }
